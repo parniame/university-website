@@ -34,7 +34,7 @@
                 WHERE userName = '$user_name'";
         
         if(mysqli_query($conn, $sql)){
-            $url = "index.html";
+            $url = "../index.html";
             header("Location: $url");
         } else{
             echo "ERROR: Hush! Sorry $sql. " 
