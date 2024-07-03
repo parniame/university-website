@@ -3,7 +3,7 @@ const addCourseButton = document.getElementById("add-course");
 const courseTable = document.getElementById("course-table");
 const messageDiv = document.getElementById("message");
 
-addCourseButton.addEventListener("click", function (e) {
+addCourseButton.addEventListener("click", function () {
   const courseName = document.getElementById("course-name").value;
   const professorName = document.getElementById("professor-name").value;
   const classDay1 = document.getElementById("class-day-1").value;
@@ -19,18 +19,49 @@ addCourseButton.addEventListener("click", function (e) {
     const newRow = courseTable.insertRow();
 
     newRow.innerHTML = `
-              <td>${courseName}</td>
-              <td>${professorName}</td>
-              <td>${getClassday(
-                classDay1,
+              
+              <td>
+                  <input
+                  type="text"
+                  value = "${courseName}"
+                  name="course-name[]"
+                  
+                  readonly/>
+            
+              </td>
+              <td>
+                  <input
+                  type="text"
+                  value = "${professorName}"
+                  name= "professor-name[]"
+                  
+                  readonly/>
+              </td>
+              <td>
+                  <input
+                  type="text"
+                  value = "${getClassday(
+                    classDay1,
 
-                classDay2
-              )}</td>
-              <td>${getClasstime(
-                classTime1,
+                    classDay2
+                  )}"
+                  name= "class-day[]"
+                  
+                  readonly/>
+              </td>
+              <td>
+                  <input
+                  type="text"
+                  value = "${getClasstime(
+                    classTime1,
 
-                classTime2
-              )}</td>
+                    classTime2
+                  )}"
+                  name= "class-time[]"
+                  
+                  readonly/>
+              
+              </td>
               <td><button onclick="deleteCourse(this)">حذف</button></td>
           `;
 
@@ -42,7 +73,7 @@ addCourseButton.addEventListener("click", function (e) {
     document.getElementById("class-day-2").value = "";
     document.getElementById("class-time-2").value = "";
 
-    messageDiv.textContent += "درس با موفقیت اضافه شد.";
+    messageDiv.textContent = "درس با موفقیت اضافه شد.";
     messageDiv.style.color = "green";
   }
 });
@@ -53,7 +84,7 @@ function getClassday(day1, day2) {
   if (day2) {
     schedule += " و " + getDayName(day2);
   }
-
+  console.log(schedule);
   return schedule;
 }
 function getClasstime(time1, time2) {

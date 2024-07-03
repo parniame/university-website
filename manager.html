@@ -14,8 +14,19 @@
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .course-table input,
+      .course-table input:hover {
+        border: none;
+      }
+
+      .course-table input:focus,
+      .course-table input:active {
+        outline: none;
+      }
+    </style>
     <title>Document</title>
-    
   </head>
   <body>
     <header>
@@ -33,7 +44,7 @@
     <main>
       <section class="course-creation">
         <h2>بخش افزودن کلاس</h2>
-        <form class="course-form" >
+        <form class="course-form">
           <label for="course-name">نام درس:</label>
           <input type="text" id="course-name" name="course-name" required />
 
@@ -89,10 +100,9 @@
       </section>
 
       <section class="course-table">
-        <form class=".." method="post" action=".php"></form>
-        <h2>کلاس های تعریف شده</h2>
-        <table id="course-table">
-          <thead>
+        <form method="post" action="php/insertCourse.php">
+          <h2>کلاس های تعریف شده</h2>
+          <table id="course-table">
             <tr>
               <th>نام درس</th>
               <th>نام استاد</th>
@@ -100,15 +110,10 @@
               <th>ساعت کلاس</th>
               <th>عملیات</th>
             </tr>
-          </thead>
-          <tbody>
-            <!-- Course data will be added here dynamically -->
-          </tbody>
-        </table>
-        <button type="submit" id="backend-coures">تایید</button>
-      </form>
+          </table>
+          <button type="submit" id="backend-coures">تایید</button>
+        </form>
       </section>
-    
     </main>
     <footer>
       <div class="footer-menu">
@@ -147,6 +152,6 @@
         </li>
       </ul>
     </footer>
-    <script src="js\manager.js" ></script>
+    <script src="js\manager.js"></script>
   </body>
 </html>
