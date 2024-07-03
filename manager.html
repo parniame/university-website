@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>Document</title>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style5.css" />
@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <title>Document</title>
+    
   </head>
   <body>
     <header>
@@ -25,80 +26,89 @@
         </div>
       </div>
       <nav class="subtopnav">
-        <a
-          href="index.html"
-          class="item-nav right"
-        >
-          صفحه &zwnj;اصلی</a
-        >
+        <a href="index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
       </nav>
     </header>
+
+    <main>
+      <section class="course-creation">
+        <h2>بخش افزودن کلاس</h2>
+        <form class="course-form" >
+          <label for="course-name">نام درس:</label>
+          <input type="text" id="course-name" name="course-name" required />
+
+          <label for="professor-name">نام استاد:</label>
+          <input
+            type="text"
+            id="professor-name"
+            name="professor-name"
+            required
+          />
+
+          <div class="class-schedule">
+            <h3>برنامه کلاس</h3>
+            <div class="class-day-time">
+              <label for="class-day-1">روز کلاس:</label>
+              <select id="class-day-1" name="class-day-1" required>
+                <option value="">یک روز را انتخاب کنید</option>
+                <option value="saturday">شنبه</option>
+                <option value="sunday">یکشنبه</option>
+                <option value="monday">دوشنبه</option>
+                <option value="tuesday">سه شنبه</option>
+                <option value="wednesday">چهارشنبه</option>
+              </select>
+
+              <label for="class-time-1">ساعت کلاس:</label>
+              <input
+                type="time"
+                id="class-time-1"
+                name="class-time-1"
+                required
+              />
+            </div>
+
+            <div class="class-day-time">
+              <label for="class-day-2">روز دوم کلاس (اختیاری):</label>
+              <select id="class-day-2" name="class-day-2">
+                <option value="">یک روز را انتخاب کنید</option>
+                <option value="saturday">شنبه</option>
+                <option value="sunday">یکشنبه</option>
+                <option value="monday">دوشنبه</option>
+                <option value="tuesday">سه شنبه</option>
+                <option value="wednesday">چهارشنبه</option>
+              </select>
+
+              <label for="class-time-2">زمان کلاس :</label>
+              <input type="time" id="class-time-2" name="class-time-2" />
+            </div>
+          </div>
+
+          <div id="message" class="message"></div>
+          <button id="add-course">افزودن درس</button>
+        </form>
+      </section>
+
+      <section class="course-table">
+        <form class=".." method="post" action=".php"></form>
+        <h2>کلاس های تعریف شده</h2>
+        <table id="course-table">
+          <thead>
+            <tr>
+              <th>نام درس</th>
+              <th>نام استاد</th>
+              <th>روز کلاس</th>
+              <th>ساعت کلاس</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Course data will be added here dynamically -->
+          </tbody>
+        </table>
+        <button type="submit" id="backend-coures">تایید</button>
+      </form>
+      </section>
     
-        <main>
-            <section class="course-creation">
-                <h2>بخش افزودن کلاس</h2>
-                <form class="course-form" method="post" >
-                    <label for="course-name">نام درس:</label>
-                    <input type="text" id="course-name" name="course-name" required>
-            
-                    <label for="professor-name">نام استاد:</label>
-                    <input type="text" id="professor-name" name="professor-name" required>
-            
-                    <div class="class-schedule">
-                        <h3>برنامه کلاس</h3>
-                        <div class="class-day-time">
-                            <label for="class-day-1">روز کلاس:</label>
-                            <select id="class-day-1" name="class-day-1" required>
-                                <option value="">یک روز را انتخاب کنید</option>
-                                <option value="saturday">شنبه</option>
-                                <option value="sunday">یکشنبه</option>
-                                <option value="monday">دوشنبه</option>
-                                <option value="tuesday">سه شنبه</option>
-                                <option value="wednesday">چهارشنبه</option>
-                            </select>
-            
-                            <label for="class-time-1">ساعت کلاس:</label>
-                            <input type="time" id="class-time-1" name="class-time-1" required>
-                        </div>
-            
-                        <div class="class-day-time">
-                            <label for="class-day-2">روز دوم کلاس (اختیاری):</label>
-                            <select id="class-day-2" name="class-day-2">
-                                <option value="">یک روز را انتخاب کنید</option>
-                                <option value="saturday">شنبه</option>
-                                <option value="sunday">یکشنبه</option>
-                                <option value="monday">دوشنبه</option>
-                                <option value="tuesday">سه شنبه</option>
-                                <option value="wednesday">چهارشنبه</option>
-                            </select>
-            
-                            <label for="class-time-2">زمان کلاس :</label>
-                            <input type="time" id="class-time-2" name="class-time-2">
-                        </div>
-                    </div>
-            
-                    <div id="message" class="message"></div>
-                    <button id="add-course">افزودن درس</button>
-                </form>
-            </section>
-            
-            <section class="course-table">
-                <h2>کلاس های تعریف شده</h2>
-                <table id="course-table">
-                    <thead>
-                        <tr>
-                            <th>نام درس</th>
-                            <th>نام استاد</th>
-                            <th>روز کلاس</th>
-                            <th>ساعت کلاس</th>
-                            <th>عملیات</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Course data will be added here dynamically -->
-                    </tbody>
-                </table>
-            </section>   
     </main>
     <footer>
       <div class="footer-menu">
@@ -137,10 +147,6 @@
         </li>
       </ul>
     </footer>
-    <script
-      src="js\manager.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="js\manager.js" ></script>
   </body>
-  
 </html>
