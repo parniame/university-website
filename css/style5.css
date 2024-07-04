@@ -74,9 +74,10 @@ body {
 header{
     
     /* height: fit-content; */
-    background-color: rgb(237, 237, 188);
+    background-color: rgb(44, 29, 210);
     /* overflow: hidden; */
 }
+
 main{
     /* position: fixed;
     top: 20vh;
@@ -89,19 +90,26 @@ main{
 }
 footer {
 
-    /* position: absolute; */
-    width: 100%;
-    /* height: fit-content; */
-    /* overflow :visible; */
-    /* bottom: 0; */
+/* position: absolute; */
 
-    text-align: center;
-    padding: .14rem;
-    background-color: DarkSalmon;
-    color: white;
-    
+width: 100%;
+
+/* height: fit-content; */
+
+/* overflow :visible; */
+
+/* bottom: 0; */
+
+text-align: center;
+
+padding: .14rem;
+
+background-color: rgb(0 211 255 / 14%);
+
+color: #121010;
+
+}
  
-  }
 p {
     margin: .6rem .8rem;
     text-align: right;
@@ -118,16 +126,21 @@ h1 {
     flex: 1 2 auto;
     text-align: center;
     font-size: 2.986rem;
+    color: white;
 }
 h2{
     font-size: 2.488rem;
+    color: rgb(44, 29, 210);
+    margin-top: 1rem;
 }
 h3{
     font-size: 2.074rem;
+    margin-top: 0.5rem;
 }
 h4{
     font-size: 1.728rem;
 }
+
 .top-nav-bar {
     position: relative;
 }
@@ -155,9 +168,14 @@ h4{
 }
 
 
-
+.flex{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    align-items: center;
+}
 .subtopnav {
-    
+    flex :auto 1 1;
     margin: .5rem;
     margin-right: 0;
     margin-left: 0;
@@ -176,13 +194,10 @@ h4{
 }
 
 .menudropdown {
-    margin: .5rem;
-    margin-right: 0;
-    margin-left: 0;
-    
+    /* margin: .5rem; */
+    /* margin-right: 0; */
+    /* margin-left: 0; */
     position: relative;
-    
-    
 }
 
 .dropdown-content {
@@ -192,7 +207,7 @@ h4{
     min-width: 8rem;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    translate: -50% 0;
+   
 }
 
 .dropdown-content a {
@@ -290,7 +305,7 @@ p.title {
     margin-bottom: 20px;
     font-weight: bold;
     padding: .6rem .8rem;
-    border-bottom: 1px solid #f5f5f6;
+    border-bottom: 1px solid #0b0b12;
     text-align: right;
 }
 i{
@@ -350,3 +365,11 @@ table, th, td {
     
     
 }
+@font-face {
+    font-family: "IranSans";
+    src: url("font/iransansFont/IRANSansXRegular.woff") format('woff');
+  }
+  
+ 
+  
+  

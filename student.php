@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/26e56465ea.js"
-      crossorigin="anonymous"
-    ></script>
+
     <title>Document</title>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style5.css" />
@@ -17,6 +14,15 @@
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    
+    <title>Document</title>
   </head>
   <body>
     <header>
@@ -26,53 +32,25 @@
           <img class="atu_logo" src="atu_logo.png" alt="atu_logo" />
         </div>
       </div>
-      <div class="flex">
-        <div class="menudropdown right item-nav" style="padding: 0">
-          <button class="dropbtn">منو اصلی</button>
-          <div class="dropdown-content">
-            <a href="project5_mt.html">مقاطع تحصیلی</a>
-            <a href="project5_t.html">تماس با دانشکده</a>
-            <a href="project5_at.html">آلبوم تصاویر</a>
-            <a href="sign_in_admin.html">ورود مدیر</a>
-            <a href="sign_in_student.htm">ورود دانشجو</a>
-          </div>
-        </div>
-        <nav class="subtopnav">
-          <ul class="flex">
-            <li>
-              <!-- <a href="sign_in_admin.html" class="item-nav right" id="sign_in"
-              >ورود
-            </a> -->
-            </li>
-            <li>
-              <a href="project5_dr.html" class="item-nav right"
-                >درباره دانشکده</a
-              >
-            </li>
-            <li>
-              <a href="project5_gr.html" class="item-nav right"
-                >گروه های آموزشی</a
-              >
-            </li>
-            <li>
-              <a href="project5_he.html" class="item-nav right">
-                اعضای هیئت علمی
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <nav class="subtopnav">
+        <a href="index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
+      </nav>
     </header>
+      
     <main>
-      <div class="container">
-        <img
-          id="first"
-          src="images\atu_pic_front.jpg"
-          alt="msu"
-          height="800px"
-          width="100%"
-        />
-      </div>
+        <div class="container bg-light">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>دروس تعریف شده</h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
     <footer>
       <div class="footer-menu">
@@ -111,6 +89,6 @@
         </li>
       </ul>
     </footer>
-    <!-- <script src="js/sign_in.js"></script> -->
+    <script src="js\manager.js"></script>
   </body>
 </html>
