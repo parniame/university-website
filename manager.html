@@ -17,7 +17,7 @@
 
     <style>
       main {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 2rem auto;
     padding: 2rem;
     background-color: #f9f9f9;
@@ -25,13 +25,39 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.course-creation, .course-table {
+.course-table {
     background-color: #ffffff;
+    width: 90%;
     border-radius: 8px;
-    padding: 2rem;
+    padding: 1rem;
     margin-bottom: 2rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow-x: hidden;/* Hide horizontal scroll */
 }
+
+#course-table {
+  
+    width: 90%; /* Full width of container */
+    border-collapse: collapse;
+    margin-top: 1rem;
+    
+    
+}
+#course-table th,
+#course-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: right;
+    word-wrap: break-word; /* Allow text to wrap */
+    max-width: 120px; /* Limit cell width */
+}
+#course-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+    
 
 h2 {
     color: #333;
@@ -100,32 +126,13 @@ button[onclick*="deleteCourse"],
 button.delete-course,
 .btn-delete {
     background-color: #dc3545; /* Red color */
-    padding: 0.5rem 1rem; /* Slightly smaller padding for the delete button */
+    
 }
 
 button[onclick*="deleteCourse"]:hover,
 button.delete-course:hover,
 .btn-delete:hover {
     background-color: #c82333; /* Darker red on hover */
-}
-
-#course-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-#course-table th,
-#course-table td {
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-    text-align: right;
-}
-
-#course-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #333;
 }
 
 #course-table tr:nth-child(even) {
@@ -155,16 +162,7 @@ button.delete-course:hover,
     border: 1px solid #f5c6cb;
 }
 
-/* Existing styles for course table inputs */
-.course-table input,
-.course-table input:hover {
-    border: none;
-}
 
-.course-table input:focus,
-.course-table input:active {
-    outline: none;
-}
     </style>
     <title>Document</title>
   </head>
