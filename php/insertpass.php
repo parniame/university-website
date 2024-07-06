@@ -18,13 +18,7 @@
    
         <?php
         session_start();
-        $conn = mysqli_connect("localhost", "root", "", "University");
-        
-        // Check connection
-        if($conn === false){
-            die("ERROR: Could not connect. " 
-                . mysqli_connect_error());
-        }
+        require_once("connect.php");
         
         $user_name = $_SESSION['user_name']  ;
         $password = $_REQUEST['password'];

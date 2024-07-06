@@ -1,3 +1,9 @@
+<?php
+    require_once("connect.php");
+    $sql = "SELECT * FROM courses";
+    $result = $conn->query($sql);
+       
+?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
   <head>
@@ -6,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Document</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,9 +27,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    
 
-    
     <title>Document</title>
   </head>
   <body>
@@ -38,32 +42,46 @@
         <a href="index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
       </nav>
     </header>
-      
+
     <main>
-        <div class="container bg-light text-dark">
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2 class = "h2 text-center ">دروس تعریف شده</h2>
-                        </div>
-                        <div class="card-body">
-                          <table class = "table table-bordered text-center">
-                              <th>
-                                
-                                <td>نام درس</td>
-                                <td>نام استاد</td>
-                                <td>روز درس</td>
-                                <td>ساعت درس</td>
-                              </th>
-                          </table>
-                        </div>
-
-                    </div>
-                </div>
+      <div class="container bg-light text-dark my-5">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="h2 text-center">دروس تعریف شده</h2>
+              </div>
+              <div
+                class="card-body table-responsive d-flex justify-content-center"
+              >
+                <table class="table table-bordered text-center w-75">
+                  <tr class="bg-dark bg-gradient text-light">
+                    <th>نام درس</th>
+                    <th>نام استاد</th>
+                    <th>روز درس</th>
+                    <th>ساعت درس</th>
+                  </tr>
+                  
+                  <tr>
+                      <?php 
+                          while($row = $result -> fetch_array(MYSQLI_ASSOC)){
+                      ?>
+                      <td><?php echo $row["courseName"] ?></td>
+                      <td><?php echo $row["professorName"] ?></td>
+                      <td><?php echo $row["classDay"] ?></td>
+                      <td><?php echo $row["classTime"] ?></td>
+                      
+                      
+                  </tr>
+                        <?php
+                          }
+                        ?>
+                </table>
+              </div>
             </div>
-
+          </div>
         </div>
+      </div>
     </main>
     <footer>
       <div class="footer-menu">

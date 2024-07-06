@@ -14,13 +14,7 @@
 
         session_start();
        
-        $conn = mysqli_connect("localhost", "root", "", "University");
-        
-        // Check connection
-        if($conn === false){
-            die("ERROR: Could not connect. " 
-                . mysqli_connect_error());
-        }
+        require_once("connect.php");
         
         // Taking all 6 values from the form data(input)
         $user_name =  $_REQUEST['user-name'];
