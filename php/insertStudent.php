@@ -39,7 +39,7 @@
         
         // Performing insert query execution
         if(mysqli_query($conn, $sql)){
-          $url = "insertpassword.htm";
+          $url = "../insertpassword.htm";
           header("Location: $url");
         } else{
             echo "ERROR: Hush! Sorry $sql. " 

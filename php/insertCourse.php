@@ -29,11 +29,11 @@
             $professor = $professorsName[$i];
             $day = $days[$i];
             $time = $times[$i];
-            $sql = "INSERT INTO courses
+            $sql = "INSERT INTO courses (courseName,professorName,classDay,classTime)
                     VALUES ('$course', '$professor','$day','$time')";
             if ($conn->query($sql) === TRUE) 
                 {
-                    echo "New record inserted successfully.";
+                    echo "New record inserted successfully.\n";
                 } 
             else 
                 {
