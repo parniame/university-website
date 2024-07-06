@@ -114,12 +114,16 @@ function deleteCourse(button) {
 }
 let secondForm = document.getElementById("insertCourse");
 secondForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  let tableRowCount = courseTable.childNodes.length;
-
-  if (tableRowCount > 2) {
+  let tbody = courseTable.childNodes[1];
+  let tableRowCount = tbody.childNodes.length;
+  // tbody.childNodes.forEach((element) => {
+  //   console.log(element);
+  // });
+  // alert(tableRowCount);
+  if (tableRowCount >= 3) {
     return true;
   } else {
     alert("   هیچ درسی انتخاب نشده است! ");
+    e.preventDefault();
   }
 });

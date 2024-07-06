@@ -61,7 +61,7 @@
                     <th>روز درس</th>
                     <th>ساعت درس</th>
                   </tr>
-                  
+                  <!-- cc -->
                   <tr>
                       <?php 
                           while($row = $result -> fetch_array(MYSQLI_ASSOC)){
@@ -76,6 +76,7 @@
                         <?php
                           }
                         ?>
+                  <!-- cc -->
                 </table>
               </div>
             </div>
