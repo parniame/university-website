@@ -11,13 +11,7 @@
     <body>
         <?php 
         
-        $conn = mysqli_connect("localhost", "root", "", "University");
-        
-        // Check connection
-        if($conn === false){
-            die("ERROR: Could not connect. " 
-                . mysqli_connect_error());
-        }
+        require_once("connect.php");
         $coursesName  = $_REQUEST["course-name"];
         $professorsName  = $_REQUEST["professor-name"];
         $days  = $_REQUEST["class-day"];
