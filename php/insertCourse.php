@@ -32,8 +32,11 @@
             $sql = "INSERT INTO courses (courseName,professorName,classDay,classTime)
                     VALUES ('$course', '$professor','$day','$time')";
             if ($conn->query($sql) === TRUE) 
-                {
-                    echo "New record inserted successfully.\n";
+                { ?>
+                    <script>alert("New record inserted successfully.\n");</script>
+                    <?php
+                    $url = "../index.html";
+                    header("Location:$url");
                 } 
             else 
                 {

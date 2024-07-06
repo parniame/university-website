@@ -50,11 +50,11 @@
                         <div class="card-body">
                           <table class = "table table-bordered text-center">
                               <th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                
+                                <td>نام درس</td>
+                                <td>نام استاد</td>
+                                <td>روز درس</td>
+                                <td>ساعت درس</td>
                               </th>
                           </table>
                         </div>

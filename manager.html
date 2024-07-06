@@ -46,7 +46,13 @@
         <h2>بخش افزودن کلاس</h2>
         <form class="course-form">
           <label for="course-name">نام درس:</label>
-          <input type="text" id="course-name" name="course-name" required />
+          <input
+            required
+            type="text"
+            id="course-name"
+            name="course-name"
+            required
+          />
 
           <label for="professor-name">نام استاد:</label>
           <input
@@ -60,7 +66,7 @@
             <h3>برنامه کلاس</h3>
             <div class="class-day-time">
               <label for="class-day-1">روز کلاس:</label>
-              <select id="class-day-1" name="class-day-1" required>
+              <select required id="class-day-1" name="class-day-1" required>
                 <option value="">یک روز را انتخاب کنید</option>
                 <option value="saturday">شنبه</option>
                 <option value="sunday">یکشنبه</option>
@@ -100,7 +106,7 @@
       </section>
 
       <section class="course-table">
-        <form method="post" action="php/insertCourse.php">
+        <form method="post" action="php/insertCourse.php" id="insertCourse">
           <h2>کلاس های تعریف شده</h2>
           <table id="course-table">
             <tr>
@@ -152,6 +158,6 @@
         </li>
       </ul>
     </footer>
-    <script src="js\manager.js"></script>
+    <script src="js/manager.js"></script>
   </body>
 </html>

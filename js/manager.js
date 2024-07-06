@@ -112,3 +112,14 @@ function deleteCourse(button) {
   const row = button.closest("tr");
   row.remove();
 }
+let secondForm = document.getElementById("insertCourse");
+secondForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  let tableRowCount = courseTable.childNodes.length;
+
+  if (tableRowCount > 2) {
+    return true;
+  } else {
+    alert("   هیچ درسی انتخاب نشده است! ");
+  }
+});
