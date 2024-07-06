@@ -73,8 +73,8 @@ h2 {
     margin-bottom: 1rem;
 }
 
-button {
-    background-color: #4CAF50;
+/* General button styles */
+button, .btn {
     color: white;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -84,8 +84,29 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #45a049;
+/* Blue buttons */
+button#add-course,
+button#backend-coures {
+    background-color: #007bff; /* Blue color */
+}
+
+button#add-course:hover,
+button#backend-coures:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Red delete button */
+button[onclick*="deleteCourse"],
+button.delete-course,
+.btn-delete {
+    background-color: #dc3545; /* Red color */
+    padding: 0.5rem 1rem; /* Slightly smaller padding for the delete button */
+}
+
+button[onclick*="deleteCourse"]:hover,
+button.delete-course:hover,
+.btn-delete:hover {
+    background-color: #c82333; /* Darker red on hover */
 }
 
 #course-table {
@@ -133,15 +154,17 @@ button:hover {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
-      .course-table input,
-      .course-table input:hover {
-        border: none;
-      }
 
-      .course-table input:focus,
-      .course-table input:active {
-        outline: none;
-      }
+/* Existing styles for course table inputs */
+.course-table input,
+.course-table input:hover {
+    border: none;
+}
+
+.course-table input:focus,
+.course-table input:active {
+    outline: none;
+}
     </style>
     <title>Document</title>
   </head>
