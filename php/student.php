@@ -35,55 +35,75 @@
       <div class="top-nav-bar">
         <div class="pagetop">
           <h1>دانشکده آمار، ریاضی و رایانه</h1>
-          <img class="atu_logo" src="http://localhost:80/university-website/atu_logo.png" alt="atu_logo" />
+          <img class="atu_logo" src="atu_logo.png" alt="atu_logo" />
         </div>
       </div>
       <nav class="subtopnav">
-        <a href="http://localhost:80/university-website/university-website/index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
-        <a href="http://localhost:80/university-website/university-website/index.html" class="item-nav right"> دروس &zwnj;انتخاب شده</a>
+        <a href="index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
       </nav>
     </header>
 
     <main>
-      <div class="container bg-light text-dark my-5">
-        <div class="row">
-          <div class="col">
-            <div class="card">
-              <div class="card-header">
-                <h2 class="h2 text-center">دروس تعریف شده</h2>
-              </div>
-              <div
-                class="card-body table-responsive d-flex justify-content-center"
-              >
-                <table class="table table-bordered text-center w-75">
-                  <tr class="bg-dark bg-gradient text-light">
-                    <th>نام درس</th>
-                    <th>نام استاد</th>
-                    <th>روز درس</th>
-                    <th>ساعت درس</th>
-                  </tr>
-                  <!-- cc -->
-                  <tr>
-                      <?php 
-                          while($row = $result -> fetch_array(MYSQLI_ASSOC)){
-                      ?>
-                      <td><?php echo $row["courseName"] ?></td>
-                      <td><?php echo $row["professorName"] ?></td>
-                      <td><?php echo $row["classDay"] ?></td>
-                      <td><?php echo $row["classTime"] ?></td>
-                      
-                      
-                  </tr>
-                        <?php
-                          }
-                        ?>
-                  <!-- cc -->
-                </table>
-              </div>
-            </div>
+    <main>
+  <div class="container bg-light text-dark my-5">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="h2 text-center">دروس تعریف شده</h2>
+          </div>
+          <div class="card-body table-responsive d-flex justify-content-center">
+            <table class="table table-bordered text-center w-75">
+              <tr class="bg-dark bg-gradient text-light">
+                <th>نام درس</th>
+                <th>نام استاد</th>
+                <th>روز درس</th>
+                <th>ساعت درس</th>
+                <th>عملیات</th>
+              </tr>
+              <!-- cc -->
+              <tr>
+                <?php
+                while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                ?>
+                  <td><?php echo $row["courseName"] ?></td>
+                  <td><?php echo $row["professorName"] ?></td>
+                  <td><?php echo $row["classDay"] ?></td>
+                  <td><?php echo $row["classTime"] ?></td>
+                  <td><button class="btn btn-primary btn-sm select-button">انتخاب</button></td>
+                </tr>
+              <?php
+                }
+              ?>
+              <!-- cc -->
+            </table>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="h2 text-center">دروس انتخاب شده</h2>
+          </div>
+          <div class="card-body table-responsive d-flex justify-content-center">
+            <table class="table table-bordered text-center w-75" id="selected-courses-table">
+              <tr class="bg-dark bg-gradient text-light">
+                <th>نام درس</th>
+                <th>نام استاد</th>
+                <th>روز درس</th>
+                <th>ساعت درس</th>
+                <th>عملیات</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
     </main>
     <footer>
       <div class="footer-menu">
@@ -122,6 +142,70 @@
         </li>
       </ul>
     </footer>
-    <script src="http://localhost:80/university-website/js/manager.js"></script>
+    <script >
+    document.addEventListener("DOMContentLoaded", function() {
+  const selectedCourses = [];
+  const selectedCoursesTable = document.getElementById("selected-courses-table");
+
+  // Add event listener to each "انتخاب" button
+  const selectButtons = document.querySelectorAll("table button.select-button");
+  selectButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+      const row = this.closest("tr");
+      const courseName = row.querySelector("td:nth-child(1)").textContent;
+      const professorName = row.querySelector("td:nth-child(2)").textContent;
+      const classDay = row.querySelector("td:nth-child(3)").textContent;
+      const classTime = row.querySelector("td:nth-child(4)").textContent;
+
+      // Check if the course is already selected
+      if (!isSelectedCourse(courseName)) {
+        // Add the course to the selectedCourses array
+        selectedCourses.push({
+          courseName: courseName,
+          professorName: professorName,
+          classDay: classDay,
+          classTime: classTime
+        });
+
+        // Create a new row in the selected courses table
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+          <td>${courseName}</td>
+          <td>${professorName}</td>
+          <td>${classDay}</td>
+          <td>${classTime}</td>
+          <td><button class="btn btn-danger btn-sm remove-button">حذف</button></td>
+        `;
+        selectedCoursesTable.appendChild(newRow);
+
+        // Add event listener to the "حذف" button
+        const removeButton = newRow.querySelector(".remove-button");
+        removeButton.addEventListener("click", function() {
+          removeSelectedCourse(courseName);
+          newRow.remove();
+        });
+      } else {
+        alert("این درس قبلاً انتخاب شده است.");
+      }
+    });
+  });
+
+  function isSelectedCourse(courseName) {
+    return selectedCourses.some(function(course) {
+      return course.courseName === courseName;
+    });
+  }
+
+  function removeSelectedCourse(courseName) {
+    const index = selectedCourses.findIndex(function(course) {
+      return course.courseName === courseName;
+    });
+    if (index !== -1) {
+      selectedCourses.splice(index, 1);
+    }
+  }
+});
+
+    </script>
   </body>
 </html>
