@@ -40,10 +40,13 @@
                 
                 if($row["password"] == $password){
                   if($isAdmin){
-                    $url = "../manager.html";
+                    $url = "http://localhost:80/university-website/manager.html";
                     header("Location: $url");
                   }
-                  else echo "logged in";
+                  else{
+                    $url = "http://localhost:80/university-website/php/student.php";
+                    header("Location: $url");
+                  }
 
                     
                 }

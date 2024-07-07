@@ -35,11 +35,12 @@
       <div class="top-nav-bar">
         <div class="pagetop">
           <h1>دانشکده آمار، ریاضی و رایانه</h1>
-          <img class="atu_logo" src="atu_logo.png" alt="atu_logo" />
+          <img class="atu_logo" src="http://localhost:80/university-website/atu_logo.png" alt="atu_logo" />
         </div>
       </div>
       <nav class="subtopnav">
-        <a href="index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
+        <a href="http://localhost:80/university-website/university-website/index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
+        <a href="http://localhost:80/university-website/university-website/index.html" class="item-nav right"> دروس &zwnj;انتخاب شده</a>
       </nav>
     </header>
 
@@ -121,6 +122,6 @@
         </li>
       </ul>
     </footer>
-    <script src="js\manager.js"></script>
+    <script src="http://localhost:80/university-website/js/manager.js"></script>
   </body>
 </html>

@@ -10,7 +10,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://localhost:80/university-website/css/style.css">
     <title>Document</title>
 </head>
 
@@ -21,19 +21,29 @@
         require_once("connect.php");
         
         $user_name = $_SESSION['user_name']  ;
-        $password = $_REQUEST['password'];
-        $passwordR = $_REQUEST['password-repeat'];
-        $sql = "UPDATE usersinformation
-                SET password = '$password'
-                WHERE userName = '$user_name'";
         
-        if(mysqli_query($conn, $sql)){
-            $url = "../index.html";
-            header("Location: $url");
-        } else{
-            echo "ERROR: Hush! Sorry $sql. " 
-                . mysqli_error($conn);
-        }
+        $insert_stmt = $_SESSION["insert_student_stmt"];
+        $password = $_REQUEST['password'];
+       
+        
+        if ($bind_stmt = $conn->prepare($insert_stmt)) {
+            $bind_stmt->bind_param("s",$password);
+            //echo $bind_stmt;
+            if($bind_stmt->execute()){
+                $url = "http://localhost:80/university-website/index.html";
+                header("Location: $url");
+              
+            } else{
+                echo "ERROR: Hush! Sorry $sql. " 
+                    . mysqli_error($conn);
+            }
+         }
+         else{
+            echo "server error!";
+         }
+        
+            
+        
         mysqli_close($conn);
         ?>
    

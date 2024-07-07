@@ -26,20 +26,16 @@
 
         $_SESSION['user_name'] = $user_name;
 
-        $sql = "INSERT INTO usersinformation  (userName,firstName,LastName,birthDate
-                ,studentCode,email)
-        VALUES ('$user_name' ,'$first_name', 
-            '$last_name','$date','$code','$email')";
+       $stmt = "INSERT INTO usersinformation  (userName,firstName,LastName,birthDate
+                ,studentCode,email,password)
+                    VALUES ('$user_name' ,'$first_name', 
+                    '$last_name','$date','$code','$email',?)";
         
-        // Performing insert query execution
-        if(mysqli_query($conn, $sql)){
-          $url = "../insertpassword.htm";
-          header("Location: $url");
-        } else{
-            echo "ERROR: Hush! Sorry $sql. " 
-                . mysqli_error($conn);
-        }
-            
+        $_SESSION["insert_student_stmt"] = $stmt;
+        
+        $url = "http://localhost:80/university-website/insertpassword.htm";
+        header("Location: $url");
+        
         
         // Close connection
         mysqli_close($conn);
