@@ -6,10 +6,11 @@ const selectButtons = document.querySelectorAll("table button.select-button");
 selectButtons.forEach(function (button) {
   button.addEventListener("click", function () {
     const row = this.closest("tr");
-    const courseName = row.querySelector("td:nth-child(1)").textContent;
-    const professorName = row.querySelector("td:nth-child(2)").textContent;
-    const classDay = row.querySelector("td:nth-child(3)").textContent;
-    const classTime = row.querySelector("td:nth-child(4)").textContent;
+    const ID = row.querySelector("td:nth-child(1)").textContent;
+    const courseName = row.querySelector("td:nth-child(2)").textContent;
+    const professorName = row.querySelector("td:nth-child(3)").textContent;
+    const classDay = row.querySelector("td:nth-child(4)").textContent;
+    const classTime = row.querySelector("td:nth-child(5)").textContent;
 
     // Check if the course is already selected or conflicts with another course
     if (!isSelectedCourse(courseName)) {
@@ -26,6 +27,12 @@ selectButtons.forEach(function (button) {
         const newRow = document.createElement("tr");
 
         newRow.innerHTML = `
+            <td>
+              <textarea
+              name="ID[]"
+              readonly
+            >${ID}</textarea>
+          </td>
           <td>
               <textarea
               name="course-name[]"

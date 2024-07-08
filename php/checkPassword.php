@@ -13,8 +13,9 @@
         <?php
         
             require_once("connect.php");
-            
+            session_start();
             $user_name = $_REQUEST['user-name']  ;
+            $_SESSION["user_name"] = $user_name;
             
             $password = $_REQUEST['password'];
           

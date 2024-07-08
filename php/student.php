@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     require_once("connect.php");
     $sql = "SELECT * FROM courses";
     $result = $conn->query($sql);
@@ -70,6 +72,7 @@
           <div class="card-body table-responsive d-flex justify-content-center">
             <table class="table table-bordered text-center w-75" id="courses-table">
               <tr class="bg-dark bg-gradient text-light">
+                <th>آیدی درس</th>
                 <th>نام درس</th>
                 <th>نام استاد</th>
                 <th>روز درس</th>
@@ -81,10 +84,12 @@
                 <?php
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                 ?>
+                  <td><?php echo $row["ID"] ?></td>
                   <td><?php echo $row["courseName"] ?></td>
                   <td><?php echo $row["professorName"] ?></td>
                   <td><?php echo $row["classDay"] ?></td>
                   <td><?php echo $row["classTime"] ?></td>
+                  
                   <td><button class="btn btn-primary btn-sm select-button">انتخاب</button></td>
                 </tr>
               <?php
@@ -103,8 +108,15 @@
             <h2 class="h2 text-center">دروس انتخاب شده</h2>
           </div>
           <div class="card-body table-responsive d-flex justify-content-center">
+          <form
+          method="post"
+          action="http://localhost:80/university-website/php/selectCourse.php"
+          id="insertCourse">
             <table class="table table-bordered text-center w-75" id="selected-courses-table">
+            
+        
               <tr class="bg-dark bg-gradient text-light">
+              <th>آیدی درس</th>
                 <th>نام درس</th>
                 <th>نام استاد</th>
                 <th>روز درس</th>
@@ -112,6 +124,8 @@
                 <th>عملیات</th>
               </tr>
             </table>
+            <button type="submit" id="backend-coures">تایید</button>
+            </form>
           </div>
         </div>
       </div>
