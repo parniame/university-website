@@ -19,49 +19,43 @@ addCourseButton.addEventListener("click", function () {
     const newRow = courseTable.insertRow();
 
     newRow.innerHTML = `
-              
-              <td>
-                  <input
-                  type="text"
-                  value = "${courseName}"
-                  name="course-name[]"
-                  
-                  readonly/>
+    <td>
+    <textarea
+    name="course-name[]"
+    readonly
+  >${courseName}</textarea>
+</td>
+<td>  
+      <textarea
+      
+      name= "professor-name[]"
+      readonly>${professorName}</textarea>
+</td>
+
+<td>
+      <textarea
             
-              </td>
-              <td>
-                  <input
-                  type="text"
-                  value = "${professorName}"
-                  name= "professor-name[]"
-                  
-                  readonly/>
-              </td>
-              <td>
-                  <input
-                  type="text"
-                  value = "${getClassday(
-                    classDay1,
+            name= "class-day[]"
+            readonly>${getClassday(classDay1, classDay2)}</textarea>
+            
+            
+  </td>
+  
+<td>
 
-                    classDay2
-                  )}"
-                  name= "class-day[]"
-                  
-                  readonly/>
-              </td>
-              <td>
-                  <input
-                  type="text"
-                  value = "${getClasstime(
-                    classTime1,
-
-                    classTime2
-                  )}"
-                  name= "class-time[]"
-                  
-                  readonly/>
+      
+      <textarea
+      
+      
+      name= "class-time[]"
+      readonly>${getClasstime(classTime1, classTime2)}</textarea>
+     
+      
+</td>
               
-              </td>
+
+
+              
               <td><button onclick="deleteCourse(this)">حذف</button></td>
           `;
 

@@ -21,6 +21,7 @@
     />
     <link rel="stylesheet" href="http://localhost:80/university-website/css/normalize.css" />
     <link rel="stylesheet" href="http://localhost:80/university-website/css/style50.css" />
+    <link rel="stylesheet" href="http://localhost:80/university-website/css/manager-student.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -33,6 +34,8 @@
     background-color: #dc3545 !important;
     
           }
+
+         
     </style>
 
     <title>Document</title>
@@ -109,6 +112,8 @@
       </div>
     </div>
   </div>
+  <script src="http://localhost:80/university-website/js/select_course.js"></script>
+ 
 </main>
 
     
@@ -149,6 +154,6 @@
         </li>
       </ul>
     </footer>
-    <script src="http://localhost:80/university-website/js/select_course.js"></script>
-  </body>
+    </body>
+    
 </html>

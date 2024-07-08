@@ -24,11 +24,41 @@ selectButtons.forEach(function (button) {
 
         // Create a new row in the selected courses table
         const newRow = document.createElement("tr");
+
         newRow.innerHTML = `
-          <td>${courseName}</td>
-          <td>${professorName}</td>
-          <td>${classDay}</td>
-          <td>${classTime}</td>
+          <td>
+              <textarea
+              name="course-name[]"
+              readonly
+            >${courseName}</textarea>
+          </td>
+          <td>  
+                <textarea
+                
+                name= "professor-name[]"
+                readonly>${professorName}</textarea>
+          </td>
+          
+          <td>
+                <textarea
+                      
+                      name= "class-day[]"
+                      readonly>${classDay}</textarea>
+                      
+                      
+            </td>
+            
+          <td>
+
+                
+                <textarea
+                
+                
+                name= "class-time[]"
+                readonly>${classTime}</textarea>
+               
+                
+          </td>
           <td><button class="btn btn-danger btn-sm remove-button">حذف</button></td>
         `;
         selectedCoursesTable.appendChild(newRow);
