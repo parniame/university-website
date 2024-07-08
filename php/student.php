@@ -63,8 +63,8 @@
             <h2 class="h2 text-center">دروس تعریف شده</h2>
             <!-- Search Fields -->
             <div class="d-flex justify-content-center my-3">
-              <input type="text" id="courseNameSearch" placeholder="جستجو نام درس" class="form-control mx-2" style="width: 200px;">
-              <input type="text" id="professorNameSearch" placeholder="جستجو نام استاد" class="form-control mx-2" style="width: 200px;">
+              <input type="text" id="courseNameSearch" placeholder="جستجو نام درس" class="form-control mx-2" style="width: 250px;">
+              <input type="text" id="professorNameSearch" placeholder="جستجو نام استاد" class="form-control mx-2" style="width: 250px;">
             </div>
           </div>
           <div class="card-body table-responsive d-flex justify-content-center">
