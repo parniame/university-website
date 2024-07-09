@@ -130,6 +130,10 @@ h2 {
         <div class="col">
           <div class="card">
             <div class="card-body table-responsive d-flex justify-content-center">
+            <form
+          method="post"
+          action="http://localhost:80/university-website/php/deleteCourse.php"
+          id="insertCourse">
               <table class="table table-bordered text-center w-75" id="selected-courses-table">
                 <tr class="bg-dark bg-gradient text-light">
                   <th>آیدی درس</th>
@@ -137,9 +141,13 @@ h2 {
                   <th>نام استاد</th>
                   <th>روز درس</th>
                   <th>ساعت درس</th>
+                  <th>عملیات</th> 
                 </tr>
               </table>
+             
             </div>
+            <button type="submit" id="backend-coures">تایید</button>
+            </form>
           </div>
         </div>
       </div>

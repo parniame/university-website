@@ -34,35 +34,21 @@ selectButtons.forEach(function (button) {
             >${ID}</textarea>
           </td>
           <td>
-              <textarea
-              name="course-name[]"
-              readonly
-            >${courseName}</textarea>
+             ${courseName}
           </td>
           <td>  
-                <textarea
-                
-                name= "professor-name[]"
-                readonly>${professorName}</textarea>
+               ${professorName}
           </td>
           
           <td>
-                <textarea
-                      
-                      name= "class-day[]"
-                      readonly>${classDay}</textarea>
+                ${classDay}
                       
                       
             </td>
             
           <td>
 
-                
-                <textarea
-                
-                
-                name= "class-time[]"
-                readonly>${classTime}</textarea>
+                ${classTime}
                
                 
           </td>
