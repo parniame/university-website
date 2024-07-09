@@ -61,7 +61,23 @@
     
           }
 
-         
+          #backend-coures {
+  background-color: #007bff; /* Blue color */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  font-size: 16px; /* Set font size */
+  border-radius: 4px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+#backend-coures:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+h2 {
+  text-align: center;
+}
     </style>
 
     <title>Document</title>

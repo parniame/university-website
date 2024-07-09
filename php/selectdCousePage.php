@@ -46,7 +46,20 @@
     
           }
 
-         
+          .btn-primary {
+  background-color: #dc3545; /* Red color */
+  border-color: #dc3545; /* Red border color */
+  color: #fff; /* White text color */
+}
+
+.btn-primary:hover {
+  background-color: #c82333; /* Darker red on hover */
+  border-color: #bd2130;
+}
+
+h2 {
+  text-align: center;
+}
     </style>
 
     <title>Document</title>
@@ -67,13 +80,13 @@
 
     
     <main>
-        <h2>دروس انتخاب شده مختص دانشجو</h2>
+  <h2>دروس انتخاب شده مختص دانشجو</h2>
   <div class="container bg-light text-dark my-5">
     <div class="row">
       <div class="col">
         <div class="card">
           <div class="card-header">
-            <h2 class="h2 text-center"> جستجو</h2>
+            <h2 class="h2 text-center">جستجو</h2>
             <!-- Search Fields -->
             <div class="d-flex justify-content-center my-3">
               <input type="text" id="courseNameSearch" placeholder="جستجو نام درس" class="form-control mx-2" style="width: 250px;">
@@ -83,7 +96,6 @@
           <div class="card-body table-responsive d-flex justify-content-center">
             <table class="table table-bordered text-center w-75" id="courses-table">
               <tr class="bg-dark bg-gradient text-light">
-                
                 <th>آیدی درس</th>
                 <th>نام درس</th>
                 <th>نام استاد</th>
@@ -95,30 +107,47 @@
               <tr>
                 <?php
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                    
                 ?>
-                
                   <td><?php echo $row["ID"] ?></td>
                   <td><?php echo $row["courseName"] ?></td>
                   <td><?php echo $row["professorName"] ?></td>
                   <td><?php echo $row["classDay"] ?></td>
                   <td><?php echo $row["classTime"] ?></td>
-                  
-                  <td><button class="btn btn-primary btn-sm select-button">انتخاب</button></td>
+                  <td><button class="btn btn-primary btn-sm select-button">حذف</button></td>
                 </tr>
-              <?php
+                <?php
                 }
-              ?>
-              <!-- cc -->
-              
-            </table>
+                ?>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div> 
+    </div>
+    <h2>دروس انتخاب شده برای حذف</h2>
+    <div class="container bg-light text-dark my-5">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body table-responsive d-flex justify-content-center">
+              <table class="table table-bordered text-center w-75" id="selected-courses-table">
+                <tr class="bg-dark bg-gradient text-light">
+                  <th>آیدی درس</th>
+                  <th>نام درس</th>
+                  <th>نام استاد</th>
+                  <th>روز درس</th>
+                  <th>ساعت درس</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <script src="http://localhost:80/university-website/js/select_course.js"></script>
   <script src="http://localhost:80/university-website/js/filter_courses.js"></script>
-</main>
 
 
     
