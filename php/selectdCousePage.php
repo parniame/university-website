@@ -47,19 +47,20 @@
           }
 
           .btn-primary {
-  background-color: #dc3545; /* Red color */
-  border-color: #dc3545; /* Red border color */
-  color: #fff; /* White text color */
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #fff !important;
 }
 
 .btn-primary:hover {
-  background-color: #c82333; /* Darker red on hover */
-  border-color: #bd2130;
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
 }
 
 h2 {
   text-align: center;
 }
+
     </style>
 
     <title>Document</title>
@@ -146,7 +147,7 @@ h2 {
               </table>
              
             </div>
-            <button type="submit" id="backend-coures">تایید</button>
+            <button type="submit" id="backend-coures" class="btn btn-primary">تایید</button>
             </form>
           </div>
         </div>
@@ -154,7 +155,7 @@ h2 {
     </div>
   </main>
 
-  <script src="http://localhost:80/university-website/js/select_course.js"></script>
+  <script src="http://localhost:80/university-website/js/selected_course_review.js"></script>
   <script src="http://localhost:80/university-website/js/filter_courses.js"></script>
 
 
