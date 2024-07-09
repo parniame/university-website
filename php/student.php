@@ -17,9 +17,14 @@
 
     $result_ID_selected = $conn->query($sql_selected);
     $IDs = array();
+    $times = array();
+    $days = array();
     while($row = $result_ID_selected-> fetch_array(MYSQLI_NUM)){
         $IDs[] = $row[0];
+        $days[] = $row[3];
+        $times[] = $row[4];
     }
+    
     
     
     

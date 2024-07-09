@@ -95,7 +95,7 @@
               <tr>
                 <?php
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                    echo $row;
+                    
                 ?>
                 
                   <td><?php echo $row["ID"] ?></td>
