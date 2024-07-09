@@ -1,8 +1,17 @@
 <?php
     session_start();
-    
+    //WHERE selectedcourse.userName = $userName
+    $userName = $_SESSION["user_name"];
     require_once("connect.php");
-    $sql = "SELECT * FROM courses";
+    $sql = "SELECT selectedcourse.ID,courses.courseName
+    ,courses.professorName,courses.classDay,courses.classTime
+            FROM selectedcourse
+           
+            INNER JOIN courses ON selectedcourse.ID = courses.ID
+            WHERE userName = '$userName'"
+            
+           ;
+            
     $result = $conn->query($sql);
        
 ?>
@@ -74,6 +83,7 @@
           <div class="card-body table-responsive d-flex justify-content-center">
             <table class="table table-bordered text-center w-75" id="courses-table">
               <tr class="bg-dark bg-gradient text-light">
+                
                 <th>آیدی درس</th>
                 <th>نام درس</th>
                 <th>نام استاد</th>
@@ -86,6 +96,7 @@
                 <?php
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                 ?>
+                
                   <td><?php echo $row["ID"] ?></td>
                   <td><?php echo $row["courseName"] ?></td>
                   <td><?php echo $row["professorName"] ?></td>
@@ -98,6 +109,7 @@
                 }
               ?>
               <!-- cc -->
+              
             </table>
           </div>
         </div>

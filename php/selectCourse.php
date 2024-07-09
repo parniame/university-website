@@ -29,7 +29,7 @@
                 { ?>
                     <script>alert("New record inserted successfully.\n");</script>
                     <?php
-                    $url = "http://localhost:80/university-website/index.html";
+                    $url = "http://localhost:80/university-website/php/selectdCousePage.php";
                     header("Location:$url");
                 } 
             else 
