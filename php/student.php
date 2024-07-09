@@ -20,7 +20,7 @@
     while($row = $result_ID_selected-> fetch_array(MYSQLI_NUM)){
         $IDs[] = $row[0];
     }
-    $result_ID_selected = $conn->query($sql_selected);
+    
     
     
     
@@ -154,25 +154,6 @@
                 <th>ساعت درس</th>
                 <th>عملیات</th>
               </tr>
-              <!-- cc -->
-              <tr>
-                <?php
-                while ($row = $result_ID_selected->fetch_array(MYSQLI_ASSOC)) {
-                ?>
-                
-                  <td><?php echo $row["ID"] ?></td>
-                  <td><?php echo $row["courseName"] ?></td>
-                  <td><?php echo $row["professorName"] ?></td>
-                  <td><?php echo $row["classDay"] ?></td>
-                  <td><?php echo $row["classTime"] ?></td>
-                  
-                  <td><button class="btn btn-danger btn-sm remove-button">حذف</button></td>
-                </tr>
-              <?php
-                }
-              ?>
-              <!-- cc -->
-              
             </table>
             <button type="submit" id="backend-coures">تایید</button>
             </form>
