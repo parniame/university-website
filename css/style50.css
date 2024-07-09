@@ -218,9 +218,7 @@ h4{
     background-color: #ddd;
 }
 
-.menudropdown:hover .dropdown-content {
-    display: block;
-}
+
 
 .menudropdown:hover .dropbtn {
     background-color: blue;
