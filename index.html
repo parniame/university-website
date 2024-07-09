@@ -23,6 +23,7 @@
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
   </head>
   <body>
     <header>
@@ -139,5 +140,10 @@
       </ul>
     </footer>
     <!-- <script src="js/sign_in.js"></script> -->
+    <script>
+      $(".dropbtn").click(function () {
+        $(".dropdown-content").slideToggle(3000);
+      });
+    </script>
   </body>
 </html>
