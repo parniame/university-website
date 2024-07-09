@@ -3,9 +3,12 @@
     $userName = $_SESSION["user_name"];
     require_once("connect.php");
     $sql = "SELECT * FROM courses";
-    $sql_selected = "SELECT selectedcourse.ID
-            FROM selectedcourse
-            WHERE userName = '$userName'"
+    $sql_selected = "SELECT selectedcourse.ID,courses.courseName
+                ,courses.professorName,courses.classDay,courses.classTime
+                  FROM selectedcourse
+                
+                  INNER JOIN courses ON selectedcourse.ID = courses.ID
+                  WHERE userName = '$userName'"
             
            ;
             
@@ -14,10 +17,10 @@
 
     $result_ID_selected = $conn->query($sql_selected);
     $IDs = array();
-    while($ID = $result_ID_selected-> fetch_array(MYSQLI_NUM)){
-        $IDs[] = $ID[0];
+    while($row = $result_ID_selected-> fetch_array(MYSQLI_NUM)){
+        $IDs[] = $row[0];
     }
-    
+    $result_ID_selected = $conn->query($sql_selected);
     
     
     
@@ -151,6 +154,25 @@
                 <th>ساعت درس</th>
                 <th>عملیات</th>
               </tr>
+              <!-- cc -->
+              <tr>
+                <?php
+                while ($row = $result_ID_selected->fetch_array(MYSQLI_ASSOC)) {
+                ?>
+                
+                  <td><?php echo $row["ID"] ?></td>
+                  <td><?php echo $row["courseName"] ?></td>
+                  <td><?php echo $row["professorName"] ?></td>
+                  <td><?php echo $row["classDay"] ?></td>
+                  <td><?php echo $row["classTime"] ?></td>
+                  
+                  <td><button class="btn btn-danger btn-sm remove-button">حذف</button></td>
+                </tr>
+              <?php
+                }
+              ?>
+              <!-- cc -->
+              
             </table>
             <button type="submit" id="backend-coures">تایید</button>
             </form>
