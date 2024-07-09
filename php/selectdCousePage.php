@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>انتخاب واحد</title>
+    <title>دروس انتخاب شده مختص دانشجو</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,19 +52,19 @@
       </div>
       <nav class="subtopnav">
         <a href="http://localhost:80/university-website/index.html" class="item-nav right"> صفحه &zwnj;اصلی</a>
-        <a href="http://localhost:80/university-website/php/selectdCousePage.php" class="item-nav right"> صفحه &zwnj;دروس انتخاب شده</a>
+        <a href="http://localhost:80/university-website/php/student.php" class="item-nav right"> صفحه &zwnj;دروس تعریف شده</a>
       </nav>
     </header>
 
     
     <main>
-    <h2>انتخاب واحد</h2>
+        <h2>دروس انتخاب شده مختص دانشجو</h2>
   <div class="container bg-light text-dark my-5">
     <div class="row">
       <div class="col">
         <div class="card">
           <div class="card-header">
-            <h2 class="h2 text-center">دروس تعریف شده</h2>
+            <h2 class="h2 text-center"> جستجو</h2>
             <!-- Search Fields -->
             <div class="d-flex justify-content-center my-3">
               <input type="text" id="courseNameSearch" placeholder="جستجو نام درس" class="form-control mx-2" style="width: 250px;">
@@ -102,37 +102,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="h2 text-center">دروس انتخاب شده</h2>
-          </div>
-          <div class="card-body table-responsive d-flex justify-content-center">
-          <form
-          method="post"
-          action="http://localhost:80/university-website/php/selectCourse.php"
-          id="insertCourse">
-            <table class="table table-bordered text-center w-75" id="selected-courses-table">
-            
-        
-              <tr class="bg-dark bg-gradient text-light">
-              <th>آیدی درس</th>
-                <th>نام درس</th>
-                <th>نام استاد</th>
-                <th>روز درس</th>
-                <th>ساعت درس</th>
-                <th>عملیات</th>
-              </tr>
-            </table>
-            <button type="submit" id="backend-coures">تایید</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    </div> 
   <script src="http://localhost:80/university-website/js/select_course.js"></script>
   <script src="http://localhost:80/university-website/js/filter_courses.js"></script>
 </main>
