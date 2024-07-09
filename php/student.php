@@ -1,10 +1,26 @@
 <?php
     session_start();
-    
+    $userName = $_SESSION["user_name"];
     require_once("connect.php");
     $sql = "SELECT * FROM courses";
+    $sql_selected = "SELECT selectedcourse.ID
+            FROM selectedcourse
+            WHERE userName = '$userName'"
+            
+           ;
+            
     $result = $conn->query($sql);
-       
+
+
+    $result_ID_selected = $conn->query($sql_selected);
+    $IDs = array();
+    while($ID = $result_ID_selected-> fetch_array(MYSQLI_NUM)){
+        $IDs[] = $ID[0];
+    }
+    
+    
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -71,7 +87,7 @@
               <input type="text" id="professorNameSearch" placeholder="جستجو نام استاد" class="form-control mx-2" style="width: 250px;">
             </div>
           </div>
-          <div class="card-body table-responsive d-flex justify-content-center">
+          <div class="card-body table-responsive d-flex flex-column justify-content-center">
             <table class="table table-bordered text-center w-75" id="courses-table">
               <tr class="bg-dark bg-gradient text-light">
                 <th>آیدی درس</th>
@@ -84,7 +100,14 @@
               <!-- cc -->
               <tr>
                 <?php
+                $count = 0;
+                
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                      if(in_array($row["ID"], $IDs)){
+                  
+                        continue;
+                      }
+                      $count +=1;
                 ?>
                   <td><?php echo $row["ID"] ?></td>
                   <td><?php echo $row["courseName"] ?></td>
@@ -96,6 +119,9 @@
                 </tr>
               <?php
                 }
+                if($count < 1){
+                  echo "<p class = 'alert alert-danger text-center'>درسی برای انتخاب وجود ندارد</p>";
+                };
               ?>
               <!-- cc -->
             </table>

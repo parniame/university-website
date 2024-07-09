@@ -1,6 +1,6 @@
 <?php
     session_start();
-    //WHERE selectedcourse.userName = $userName
+    
     $userName = $_SESSION["user_name"];
     require_once("connect.php");
     $sql = "SELECT selectedcourse.ID,courses.courseName
