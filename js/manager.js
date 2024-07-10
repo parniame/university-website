@@ -3,7 +3,7 @@ const addCourseButton = document.getElementById("add-course");
 const courseTable = document.getElementById("course-table");
 const messageDiv = document.getElementById("message");
 
-addCourseButton.addEventListener("click", function () {
+addCourseButton.addEventListener("click", function (e) {
   const courseName = document.getElementById("course-name").value;
   const professorName = document.getElementById("professor-name").value;
   const classDay1 = document.getElementById("class-day-1").value;
@@ -12,10 +12,14 @@ addCourseButton.addEventListener("click", function () {
   const classTime2 = document.getElementById("class-time-2").value;
 
   if (!courseName || !professorName || !classDay1 || !classTime1) {
-    console.log(courseName);
     messageDiv.textContent = "لطفا تمام فیلدهای الزامی را پر کنید.";
     messageDiv.style.color = "red";
   } else {
+    console.log(courseName);
+    console.log(professorName);
+    console.log(getClassday(classDay1, classDay2));
+    console.log(getClasstime(classDay1, classDay2, classTime1, classTime2));
+
     const newRow = courseTable.insertRow();
 
     newRow.innerHTML = `
@@ -48,7 +52,12 @@ addCourseButton.addEventListener("click", function () {
       
       
       name= "class-time[]"
-      readonly>${getClasstime(classTime1, classTime2)}</textarea>
+      readonly>${getClasstime(
+        classDay1,
+        classDay2,
+        classTime1,
+        classTime2
+      )}</textarea>
      
       
 </td>
@@ -78,14 +87,14 @@ function getClassday(day1, day2) {
   if (day2) {
     schedule += " و " + getDayName(day2);
   }
-  console.log(schedule);
+
   return schedule;
 }
-function getClasstime(time1, time2) {
-  let schedule = time1;
+function getClasstime(day1, day2, time1, time2) {
+  let schedule = getDayName(day1) + " : " + time1 + " و \n";
 
   if (time2) {
-    schedule += " و " + time2;
+    schedule += getDayName(day2) + " : " + time2;
   }
 
   return schedule;

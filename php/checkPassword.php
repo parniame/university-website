@@ -52,12 +52,15 @@
                     
                 }
               } else {
-                echo "0 results";
+                  $url = "http://localhost:80/university-website/error_signIN.html";
+                  header("Location: $url");
+
               }
             
             // Close connection
             mysqli_close($conn);
         ?>
+        
    
 </body>
 

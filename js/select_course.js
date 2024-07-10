@@ -1,4 +1,18 @@
 const selectedCourses = [];
+const hideRows = document.querySelectorAll(".hide");
+hideRows.forEach(function (row) {
+  const courseName = row.querySelector("td:nth-child(2)").textContent;
+  const professorName = row.querySelector("td:nth-child(3)").textContent;
+  const classDay = row.querySelector("td:nth-child(4)").textContent;
+  const classTime = row.querySelector("td:nth-child(5)").textContent;
+  selectedCourses.push({
+    courseName: courseName,
+    professorName: professorName,
+    classDay: classDay,
+    classTime: classTime,
+  });
+});
+
 const selectedCoursesTable = document.getElementById("selected-courses-table");
 
 // Add event listener to each "انتخاب" button
@@ -69,6 +83,15 @@ selectButtons.forEach(function (button) {
       alert("این درس قبلاً انتخاب شده است.");
     }
   });
+});
+const submitButton = document.getElementById("backend-coures");
+submitButton.addEventListener("click", function (e) {
+  if (selectedCoursesTable.childElementCount > 1) {
+    return true;
+  } else {
+    e.preventDefault();
+    alert("شما هیچ درسی انتخاب نکردید!");
+  }
 });
 
 function isSelectedCourse(courseName) {

@@ -70,6 +70,15 @@ selectButtons.forEach(function (button) {
     }
   });
 });
+const submitButton = document.getElementById("backend-coures");
+submitButton.addEventListener("click", function (e) {
+  if (selectedCoursesTable.childElementCount > 1) {
+    return true;
+  } else {
+    e.preventDefault();
+    alert("شما هیچ درسی برای حذف انتخاب نکردید!");
+  }
+});
 
 function isSelectedCourse(courseName) {
   return selectedCourses.some(function (course) {

@@ -1,14 +1,15 @@
 <?php
     session_start();
-    $userName = $_SESSION["user_name"];
+
+    $userName = $_SESSION["user_name"] ;
     require_once("connect.php");
     $sql = "SELECT * FROM courses";
     $sql_selected = "SELECT selectedcourse.ID,courses.courseName
-                ,courses.professorName,courses.classDay,courses.classTime
-                  FROM selectedcourse
-                
-                  INNER JOIN courses ON selectedcourse.ID = courses.ID
-                  WHERE userName = '$userName'"
+                  ,courses.professorName,courses.classDay,courses.classTime
+                    FROM selectedcourse
+                  
+                    INNER JOIN courses ON selectedcourse.ID = courses.ID
+                    WHERE userName = '$userName'"
             
            ;
             
@@ -17,13 +18,16 @@
 
     $result_ID_selected = $conn->query($sql_selected);
     $IDs = array();
-    $times = array();
-    $days = array();
+    // $times = array();
+    // $days = array();
     while($row = $result_ID_selected-> fetch_array(MYSQLI_NUM)){
         $IDs[] = $row[0];
-        $days[] = $row[3];
-        $times[] = $row[4];
+        // $days[] = $row[3];
+        // $times[] = $row[4];
     }
+    
+    $result_ID_selected = $conn->query($sql_selected);
+
     
     
     
@@ -128,7 +132,6 @@ h2 {
                 
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                       if(in_array($row["ID"], $IDs)){
-                  
                         continue;
                       }
                       $count +=1;
@@ -175,6 +178,27 @@ h2 {
                 <th>ساعت درس</th>
                 <th>عملیات</th>
               </tr>
+              
+                <?php
+                
+                
+                while ($row = $result_ID_selected->fetch_array(MYSQLI_ASSOC)) {
+                     
+                      
+                ?>
+                <tr class = "hide">
+                  <td><?php echo $row["ID"] ?></td>
+                  <td><?php echo $row["courseName"] ?></td>
+                  <td><?php echo $row["professorName"] ?></td>
+                  <td><?php echo $row["classDay"] ?></td>
+                  <td><?php echo $row["classTime"] ?></td>
+                  
+                  <td><button class="btn btn-primary btn-sm select-button">انتخاب</button></td>
+                </tr>
+                <?php
+                }
+                
+              ?>
             </table>
             
           </div>

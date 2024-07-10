@@ -22,3 +22,6 @@ textarea{
 td,th,tr {
   border : rgb(222, 226, 230);
 }
+.hide{
+  display: none;
+}
