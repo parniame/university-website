@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2024 at 12:52 AM
+-- Generation Time: Jul 10, 2024 at 06:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,10 +40,32 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`ID`, `courseName`, `professorName`, `classDay`, `classTime`) VALUES
-(1, 'طراحی کامپایلر', 'دکتر حسن رشیدی', 'سه شنبه و یکشنبه', '10:00 و 08:00'),
 (2, 'مبانی برنامه نویسی', 'دکتر فرزام متینفر', 'شنبه و دوشنبه', '10:00'),
 (3, 'تاریخ امامت', 'دکتر  اکبر امامی', 'چهارشنبه', '10:30'),
-(4, 'انقلاب اسلامی ایران', 'دکتر رحیم مصطفی زاده', 'چهارشنبه', '10:30');
+(4, 'انقلاب اسلامی ایران', 'دکتر رحیم مصطفی زاده', 'چهارشنبه', '10:30'),
+(10, 'مبانی برنامه نویسی شبکه', 'دکتر مرضیه اکبری', 'یکشنبه و سه شنبه', '13:00'),
+(11, 'طراحی کامپایلر', 'دکتر ابرزاده', 'شنبه و دوشنبه', 'شنبه : 13:30 و \r\nدوشنبه : 10:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `selectedcourse`
+--
+
+CREATE TABLE `selectedcourse` (
+  `userName` char(50) NOT NULL,
+  `ID` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `selectedcourse`
+--
+
+INSERT INTO `selectedcourse` (`userName`, `ID`) VALUES
+('kadoo', 2),
+('kadoo', 3),
+('mehidimeshki', 2),
+('parniame', 2);
 
 -- --------------------------------------------------------
 
@@ -52,7 +74,7 @@ INSERT INTO `courses` (`ID`, `courseName`, `professorName`, `classDay`, `classTi
 --
 
 CREATE TABLE `usersinformation` (
-  `userName` varchar(11) NOT NULL,
+  `userName` varchar(50) NOT NULL,
   `firstName` char(50) DEFAULT NULL,
   `LastName` char(50) DEFAULT NULL,
   `birthDate` date DEFAULT NULL,
@@ -69,7 +91,9 @@ CREATE TABLE `usersinformation` (
 INSERT INTO `usersinformation` (`userName`, `firstName`, `LastName`, `birthDate`, `studentCode`, `email`, `password`, `IsAdmin`) VALUES
 ('admin', NULL, NULL, NULL, NULL, NULL, '000', 1),
 ('deli', 'دلشاد', ' علامه زاده', '2001-06-21', '9913130042', 'del@gmail.com', '555', 0),
+('kadoo', 'کدو', 'کدویان', '2001-06-05', '9913130013', 'kadoo@gmail.com', 'kadoo', 0),
 ('mahansa', 'Mahan', 'Sahebdel', '2002-05-27', '9913130054', 'mahan.sa.usa@gmail.com', '222', 0),
+('mehidimeshki', 'مهدی', 'مینایی', '2001-06-05', '9913131202', 'mehdi.minaee@gmail.com', '4575', 0),
 ('parniame', 'parnia', 'minayy', '2002-05-30', '9913130050', 'minaeeparnia@gmail.com', '111', 0);
 
 --
@@ -82,6 +106,12 @@ INSERT INTO `usersinformation` (`userName`, `firstName`, `LastName`, `birthDate`
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `courseName` (`courseName`,`professorName`);
+
+--
+-- Indexes for table `selectedcourse`
+--
+ALTER TABLE `selectedcourse`
+  ADD PRIMARY KEY (`userName`,`ID`);
 
 --
 -- Indexes for table `usersinformation`
@@ -97,7 +127,7 @@ ALTER TABLE `usersinformation`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
