@@ -26,22 +26,43 @@
         $password = $_REQUEST['password'];
        
         
-        if ($bind_stmt = $conn->prepare($insert_stmt)) {
+        
+         try 
+         {  
+            if ($bind_stmt = $conn->prepare($insert_stmt)) {
             $bind_stmt->bind_param("s",$password);
             //echo $bind_stmt;
-            if($bind_stmt->execute()){
-                $url = "http://localhost:80/university-website/index.html";
-                header("Location: $url");
-              
-            } else{
-                echo "ERROR: Hush! Sorry $sql. " 
-                    . mysqli_error($conn);
+                if($bind_stmt->execute()){
+                    $message = "نام کاربری "."'$user_name'". "با موفقیت وارد شد \n" ;
+                    echo $message;
+                    $url = "http://localhost:80/university-website/sign_in_student.htm";
+                    header("Location: $url");
+
+                
+                } 
+
+                
             }
-         }
-         else{
-            echo "server error!";
-         }
-        
+            else{
+                $message  = "سرور به مشکل خورد";
+            }
+             
+             
+             echo $message;
+         } 
+     catch(Throwable $e)
+         {   
+            
+             if (mysqli_errno($conn) == 1062) {
+                 $message =   "نام کاربری تکراری است!";
+             }
+             else{
+                 $message =   "نام کاربری "."'$user_name'"."در ورود به مشکل خورد \n";
+                 
+             }
+             echo $message;
+
+         }       
             
         
         mysqli_close($conn);

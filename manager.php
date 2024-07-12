@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
   <head>
@@ -23,6 +24,7 @@
       rel="stylesheet"
       href="http://localhost:80/university-website/css/manager-student.css"
     />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -57,7 +59,7 @@
     <main>
       <section class="course-creation">
         <h2>بخش افزودن کلاس</h2>
-        <form class="course-form">
+        <form class="course-form" >
           <label for="course-name">نام درس:</label>
           <input
             required
@@ -114,16 +116,12 @@
           </div>
 
           <div id="message" class="message"></div>
-          <button id="add-course">افزودن درس</button>
+          <button  id="add-course">افزودن درس</button>
         </form>
       </section>
 
       <section class="course-table">
-        <form
-          method="post"
-          action="http://localhost:80/university-website/php/insertCourse.php"
-          id="insertCourse"
-        >
+        <form method="post" action="" id="insertCourse" onsubmit="return false;">
           <h2>کلاس های تعریف شده</h2>
           <table id="course-table">
             <tr>
@@ -134,9 +132,12 @@
               <th>عملیات</th>
             </tr>
           </table>
-          <button type="submit" id="backend-coures">تایید</button>
+          <button  name="SubmitButton" id="backend-coures">تایید</button>
         </form>
       </section>
+      
+      
+      
     </main>
     <footer>
       <div class="footer-menu">

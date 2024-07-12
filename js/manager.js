@@ -3,7 +3,7 @@ const addCourseButton = document.getElementById("add-course");
 const courseTable = document.getElementById("course-table");
 const messageDiv = document.getElementById("message");
 
-addCourseButton.addEventListener("click", function (e) {
+addCourseButton.addEventListener("click", function () {
   const courseName = document.getElementById("course-name").value;
   const professorName = document.getElementById("professor-name").value;
   const classDay1 = document.getElementById("class-day-1").value;
@@ -91,10 +91,10 @@ function getClassday(day1, day2) {
   return schedule;
 }
 function getClasstime(day1, day2, time1, time2) {
-  let schedule = getDayName(day1) + " : " + time1 + " و \n";
+  let schedule = getDayName(day1) + " : " + time1;
 
   if (time2) {
-    schedule += getDayName(day2) + " : " + time2;
+    schedule += " و \n" + getDayName(day2) + " : " + time2;
   }
 
   return schedule;
@@ -119,14 +119,17 @@ let secondForm = document.getElementById("insertCourse");
 secondForm.addEventListener("submit", function (e) {
   let tbody = courseTable.childNodes[1];
   let tableRowCount = tbody.childNodes.length;
-  // tbody.childNodes.forEach((element) => {
-  //   console.log(element);
-  // });
-  // alert(tableRowCount);
+
+  e.preventDefault();
+
   if (tableRowCount >= 3) {
-    return true;
+    var formData = $(this).serialize();
+    // Make AJAX request
+    $.post("php/insertCourse.php", formData, function (data) {
+      alert(" پیام:" + data);
+      $("form").trigger("reset");
+    });
   } else {
     alert("   هیچ درسی انتخاب نشده است! ");
-    e.preventDefault();
   }
 });

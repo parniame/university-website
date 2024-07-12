@@ -41,7 +41,7 @@
                 
                 if($row["password"] == $password){
                   if($isAdmin){
-                    $url = "http://localhost:80/university-website/manager.html";
+                    $url = "http://localhost:80/university-website/manager.php";
                     header("Location: $url");
                   }
                   else{
