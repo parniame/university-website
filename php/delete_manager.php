@@ -23,10 +23,10 @@
             $ID = $coursesID [$i];
             
             
-            $sql = "DELETE FROM selectedcourse WHERE ID = $ID";
+            $sql = "DELETE FROM courses WHERE ID = $ID";
             if ($conn->query($sql) === TRUE) 
                 { 
-                    $url = "http://localhost:80/university-website/php/selectdCousePage.php";
+                    $url = "http://localhost:80/university-website/manager_delete.php";
                     header("Location:$url");
                 } 
             else 

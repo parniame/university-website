@@ -53,6 +53,12 @@
         >
           صفحه &zwnj;اصلی</a
         >
+        <a
+          href="http://localhost:80/university-website/manager_delete.php"
+          class="item-nav right"
+        >
+          صفحه &zwnj;دروس تعریف شده</a
+        >
       </nav>
     </header>
 
