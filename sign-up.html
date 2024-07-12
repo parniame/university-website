@@ -10,7 +10,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="http://localhost:80/university-website/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
     <title>Document</title>
   </head>
   <body>
@@ -72,7 +71,7 @@
             </label><small class="text-muted">سال تولد</small> 
             </label>
             
-            <!-- <input
+            <input
            
               class="border-0 form-control p-0 "
               type="date"
@@ -80,8 +79,7 @@
               value="2001-06-05"
               id="birth-date"
               required
-            /> -->
-            <input data-jdp data-jdp-max-date="today" type="text" class="form-control" placeholder="تاریخ تولد را وارد کنید" />
+            />
           </div>
           <div class="border form-control my-2  ">
             <label class="form-label" for="student-code">
@@ -126,11 +124,5 @@
       
     </div>
     <script src="http://localhost:80/university-website/js/javascript.js" class="alert "></script>
-    <script src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
-  <script>jalaliDatepicker.startWatch({
-  minDate: "attr",
-  maxDate: "attr"
-});</script>
-
   </body>
 </html>
