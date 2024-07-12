@@ -88,7 +88,7 @@
            </h1>";
 
          }  
-         echo '<a class= "text-decoration-none" href="http://localhost:80/university-website/sign-up.html"><p class= "text-center ">به صفحه عضویت منتقل شوید</p></a>';
+         echo '<a class= "text-decoration-none" href="http://localhost:80/university-website/sign_in_student.htm"><p class= "text-center ">به صفحه عضویت منتقل شوید</p></a>';
          
         
         mysqli_close($conn);

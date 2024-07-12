@@ -58,6 +58,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    
+    
     <style>
       .btn-danger {
     
@@ -103,6 +105,8 @@ h2 {
     
     <main>
     <h2>انتخاب واحد</h2>
+    
+    
   <div class="container bg-light text-dark my-5">
     <div class="row">
       <div class="col">
@@ -210,6 +214,8 @@ h2 {
   </div>
   <script src="http://localhost:80/university-website/js/select_course.js"></script>
   <script src="http://localhost:80/university-website/js/filter_courses.js"></script>
+  
+
 </main>
 
 
