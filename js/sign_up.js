@@ -4,8 +4,11 @@ document.addEventListener("submit", function (e) {
   const passwordRString = document.getElementById("password-repeat").value;
 
   if (CheckPass(passwordString, passwordRString)) {
+    message.classList.remove("alert-danger");
+
     message.classList.add("alert-success");
     message.textContent = "موفقیت";
+
     return true;
   } else {
     message.textContent = " رمز یکسان نیست!\n";
