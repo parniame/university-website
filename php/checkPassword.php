@@ -36,21 +36,27 @@
 
             if ($result->num_rows > 0) {
                 // output data of each row
-              
-                $row = $result -> fetch_array(MYSQLI_ASSOC);
-                
-                if($row["password"] == $password){
-                  if($isAdmin){
-                    $url = "http://localhost:80/university-website/manager.php";
-                    header("Location: $url");
-                  }
-                  else{
-                    $url = "http://localhost:80/university-website/php/student.php";
-                    header("Location: $url");
-                  }
-
+                  
+                    $row = $result -> fetch_array(MYSQLI_ASSOC);
                     
-                }
+                    if($row["password"] == $password){
+                      if($isAdmin){
+                        $url = "http://localhost:80/university-website/manager.php";
+                        header("Location: $url");
+                      }
+                      else{
+                        $url = "http://localhost:80/university-website/php/student.php";
+                        header("Location: $url");
+                      }
+
+                        
+                    }
+                    else{
+                      
+                      $url = "http://localhost:80/university-website/error_signIN.html";
+                      header("Location: $url");
+
+                    }
               } else {
                   $url = "http://localhost:80/university-website/error_signIN.html";
                   header("Location: $url");
